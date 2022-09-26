@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class Palindrom
+{
+    public static void main(String[] args)
+
+    {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print(" Kelime yazin please : ");
+        String isim = input.nextLine();
+
+        int boyut = isim.length();
+
+        int dizi [] = new int[isim.length()] ;
+
+        int dizi2 [] = new int[isim.length()] ;
+
+        for (int i = 0 ; i< isim.length() ; i++ )
+        {
+            dizi [i] = isim.codePointAt(i);
+        }
+
+        for(int i=0; i<boyut;i++)
+        {
+            dizi2[boyut-1-i] = dizi[i];
+        }
+        boolean as = true;
+        for(int i =0;i<boyut;i++)
+        {
+
+            if( dizi[i] != dizi2[i])
+            {
+                as = false;
+                break;
+            }
+
+        }
+
+        if(as)
+        {
+            System.out.println(isim + " Polindrom kelimedir..");
+        }
+        else
+        {
+            System.out.println(isim + " Polindrom degildir !!! ");
+        }
+
+    }
+}
